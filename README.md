@@ -19,6 +19,13 @@ Adds Bricks Builder elements to render JetReviews widgets without modifying JetR
 - JetReviews plugin installed and active
 
 ## Changelog
+
+### 0.1.3
+- **Fixed** visibility toggles (Show review author avatar, Show review title, Show review title input, Show review content input, Show comment author avatar) now work correctly by properly converting Bricks checkbox values to booleans that JetReviews Vue frontend expects.
+- **Fixed** admin submenu "Bricks Bridge" now correctly appears after "Settings" instead of at the top of the JetReviews menu.
+- **Fixed** admin submenu URL was broken (`/wp-admin/jetreviews-bricks-bridge` instead of `admin.php?page=jetreviews-bricks-bridge`), resolved by setting correct `admin_menu` priority.
+- Cleaned up admin page code.
+
 ### 0.1.2
 - Added Debug Status page in WordPress Admin.
 - Added support for JetReviews icons in Bricks Builder.
@@ -26,8 +33,8 @@ Adds Bricks Builder elements to render JetReviews widgets without modifying JetR
 - Improved error handling.
 
 ### 0.1.1
-- Minor stability improvements.
-- Fixed element registration timing.
+- Fixed Reviews Listing (JetReviews) widget not displaying in Bricks Builder.
+- Fixed element registration timing to wait for Bricks base classes.
 
 ### 0.1.0
 - Initial release.
