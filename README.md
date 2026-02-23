@@ -20,12 +20,6 @@ Adds Bricks Builder elements to render JetReviews widgets without modifying JetR
 
 ## Changelog
 
-### 0.1.4
-- **Added** Icons control group with 13 customizable icon pickers in the Bricks editor, matching Elementor's Icons panel:
-  - Empty Star, Filled Star, New Review Button, Show Comments Button, New Comment Button, Pinned, Empty Like, Filled Like, Empty Dislike, Filled Dislike, Reply Button, Prev, Next.
-- Icons are passed to JetReviews renderer and override default SVG icons when customized.
-- **Improved** controls panel organization with grouped sections (Settings, Icons).
-
 ### 0.1.3
 - **Fixed** visibility toggles (Show review author avatar, Show review title, Show review title input, Show review content input, Show comment author avatar) now work correctly by properly converting Bricks checkbox values to booleans that JetReviews Vue frontend expects.
 - **Fixed** admin submenu "Bricks Bridge" now correctly appears after "Settings" instead of at the top of the JetReviews menu.

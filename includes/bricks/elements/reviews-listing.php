@@ -2,7 +2,6 @@
 namespace JetReviews_Bricks_Bridge\Elements;
 
 use Bricks\Element;
-use Bricks\Helpers;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
@@ -21,18 +20,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		return esc_html__( 'Reviews Listing (JetReviews)', 'jet-reviews-bricks-bridge' );
 	}
 
-	public function set_control_groups() {
-		$this->control_groups['settings'] = [
-			'title' => esc_html__( 'Settings', 'jet-reviews-bricks-bridge' ),
-			'tab'   => 'content',
-		];
-
-		$this->control_groups['icons'] = [
-			'title' => esc_html__( 'Icons', 'jet-reviews-bricks-bridge' ),
-			'tab'   => 'content',
-		];
-	}
-
 	public function set_controls() {
 		$source_options = [];
 		if ( function_exists( 'jet_reviews' ) && isset( jet_reviews()->reviews_manager ) && isset( jet_reviews()->reviews_manager->sources ) ) {
@@ -41,7 +28,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		$this->controls['source'] = [
 			'tab'        => 'content',
-			'group'      => 'settings',
 			'label'      => esc_html__( 'Source', 'jet-reviews-bricks-bridge' ),
 			'type'       => 'select',
 			'options'    => $source_options,
@@ -52,7 +38,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		$this->controls['ratingLayout'] = [
 			'tab'      => 'content',
-			'group'    => 'settings',
 			'label'    => esc_html__( 'Rating layout', 'jet-reviews-bricks-bridge' ),
 			'type'     => 'select',
 			'options'  => [
@@ -65,7 +50,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		$this->controls['ratingInputType'] = [
 			'tab'      => 'content',
-			'group'    => 'settings',
 			'label'    => esc_html__( 'Rating input type', 'jet-reviews-bricks-bridge' ),
 			'type'     => 'select',
 			'options'  => [
@@ -78,7 +62,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		$this->controls['reviewRatingType'] = [
 			'tab'      => 'content',
-			'group'    => 'settings',
 			'label'    => esc_html__( 'Review rating type', 'jet-reviews-bricks-bridge' ),
 			'type'     => 'select',
 			'options'  => [
@@ -91,7 +74,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		$this->controls['reviewsPerPage'] = [
 			'tab'      => 'content',
-			'group'    => 'settings',
 			'label'    => esc_html__( 'Reviews per page', 'jet-reviews-bricks-bridge' ),
 			'type'     => 'number',
 			'min'      => 1,
@@ -102,7 +84,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		$this->controls['reviewAuthorAvatarVisible'] = [
 			'tab'      => 'content',
-			'group'    => 'settings',
 			'label'    => esc_html__( 'Show review author avatar', 'jet-reviews-bricks-bridge' ),
 			'type'     => 'checkbox',
 			'default'  => true,
@@ -111,7 +92,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		$this->controls['reviewTitleVisible'] = [
 			'tab'      => 'content',
-			'group'    => 'settings',
 			'label'    => esc_html__( 'Show review title', 'jet-reviews-bricks-bridge' ),
 			'type'     => 'checkbox',
 			'default'  => true,
@@ -120,7 +100,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		$this->controls['reviewTitleInputVisible'] = [
 			'tab'      => 'content',
-			'group'    => 'settings',
 			'label'    => esc_html__( 'Show review title input', 'jet-reviews-bricks-bridge' ),
 			'type'     => 'checkbox',
 			'default'  => true,
@@ -129,7 +108,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		$this->controls['reviewContentInputVisible'] = [
 			'tab'      => 'content',
-			'group'    => 'settings',
 			'label'    => esc_html__( 'Show review content input', 'jet-reviews-bricks-bridge' ),
 			'type'     => 'checkbox',
 			'default'  => true,
@@ -138,7 +116,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		$this->controls['commentAuthorAvatarVisible'] = [
 			'tab'      => 'content',
-			'group'    => 'settings',
 			'label'    => esc_html__( 'Show comment author avatar', 'jet-reviews-bricks-bridge' ),
 			'type'     => 'checkbox',
 			'default'  => true,
@@ -147,168 +124,11 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		$this->controls['disableBuilderRender'] = [
 			'tab'         => 'content',
-			'group'       => 'settings',
 			'label'       => esc_html__( "Don't render inside builder", 'jet-reviews-bricks-bridge' ),
 			'type'        => 'checkbox',
 			'default'     => false,
 			'description' => esc_html__( 'Useful if the Vue widget slows down the builder. Frontend will still render.', 'jet-reviews-bricks-bridge' ),
 			'rerender'    => true,
-		];
-
-		$this->controls['emptyStarIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'Empty Star Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'far fa-star',
-			],
-			'rerender' => true,
-		];
-
-		$this->controls['filledStarIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'Filled Star Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'fas fa-star',
-			],
-			'rerender' => true,
-		];
-
-		$this->controls['newReviewButtonIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'New Review Button Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'fas fa-pen',
-			],
-			'rerender' => true,
-		];
-
-		$this->controls['showCommentsButtonIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'Show Comments Button Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'fas fa-comment',
-			],
-			'rerender' => true,
-		];
-
-		$this->controls['newCommentButtonIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'New Comment Button Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'fas fa-pen',
-			],
-			'rerender' => true,
-		];
-
-		$this->controls['pinnedIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'Pinned Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'fas fa-thumbtack',
-			],
-			'rerender' => true,
-		];
-
-		$this->controls['reviewEmptyLikeIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'Empty Like Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'far fa-thumbs-up',
-			],
-			'rerender' => true,
-		];
-
-		$this->controls['reviewFilledLikeIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'Filled Like Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'fas fa-thumbs-up',
-			],
-			'rerender' => true,
-		];
-
-		$this->controls['reviewEmptyDislikeIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'Empty Dislike Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'far fa-thumbs-down',
-			],
-			'rerender' => true,
-		];
-
-		$this->controls['reviewFilledDislikeIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'Filled Dislike Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'fas fa-thumbs-down',
-			],
-			'rerender' => true,
-		];
-
-		$this->controls['replyButtonIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'Reply Button Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'fas fa-reply',
-			],
-			'rerender' => true,
-		];
-
-		$this->controls['prevIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'Prev Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'fas fa-chevron-left',
-			],
-			'rerender' => true,
-		];
-
-		$this->controls['nextIcon'] = [
-			'tab'      => 'content',
-			'group'    => 'icons',
-			'label'    => esc_html__( 'Next Icon', 'jet-reviews-bricks-bridge' ),
-			'type'     => 'icon',
-			'default'  => [
-				'library' => 'fontawesome',
-				'icon'    => 'fas fa-chevron-right',
-			],
-			'rerender' => true,
 		];
 	}
 
@@ -317,7 +137,10 @@ class Element_JetReviews_Reviews_Listing extends Element {
 	 *
 	 * Bricks checkbox behavior: when CHECKED, the key exists in
 	 * $this->settings (truthy). When UNCHECKED, the key is completely
-	 * ABSENT from $this->settings.
+	 * ABSENT from $this->settings — regardless of the 'default' value
+	 * defined in set_controls(). Therefore:
+	 *   - key exists   → user checked   → true
+	 *   - key absent   → user unchecked → false
 	 *
 	 * @param string $key Settings key.
 	 *
@@ -325,29 +148,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 	 */
 	private function get_bool_setting( $key ) {
 		return ! empty( $this->settings[ $key ] );
-	}
-
-	/**
-	 * Render a Bricks icon control value to an HTML string.
-	 *
-	 * Uses Bricks Helpers::render_control_icon() (which echoes), buffered
-	 * into a string suitable for passing to Review_Listing_Render.
-	 *
-	 * @param string      $key     Settings key.
-	 * @param string|null $default Fallback HTML if icon is not set.
-	 *
-	 * @return string|null Icon HTML or default.
-	 */
-	private function get_icon_html( $key, $default = null ) {
-		if ( empty( $this->settings[ $key ] ) ) {
-			return $default;
-		}
-
-		ob_start();
-		Helpers::render_control_icon( $this->settings[ $key ] );
-		$html = ob_get_clean();
-
-		return ! empty( $html ) ? $html : $default;
 	}
 
 	public function render() {
@@ -375,39 +175,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		$source = ! empty( $this->settings['source'] ) ? $this->settings['source'] : 'post';
 
-		$prev_icon_html = $this->get_icon_html( 'prevIcon' );
-		$next_icon_html = $this->get_icon_html( 'nextIcon' );
-
-		$icons = [];
-
-		$icon_keys = [
-			'emptyStarIcon',
-			'filledStarIcon',
-			'newReviewButtonIcon',
-			'showCommentsButtonIcon',
-			'newCommentButtonIcon',
-			'pinnedIcon',
-			'reviewEmptyLikeIcon',
-			'reviewFilledLikeIcon',
-			'reviewEmptyDislikeIcon',
-			'reviewFilledDislikeIcon',
-			'replyButtonIcon',
-		];
-
-		foreach ( $icon_keys as $icon_key ) {
-			$html = $this->get_icon_html( $icon_key );
-			if ( $html ) {
-				$icons[ $icon_key ] = $html;
-			}
-		}
-
-		if ( $prev_icon_html ) {
-			$icons['prevIcon'] = ! is_rtl() ? $prev_icon_html : $next_icon_html;
-		}
-		if ( $next_icon_html ) {
-			$icons['nextIcon'] = ! is_rtl() ? $next_icon_html : $prev_icon_html;
-		}
-
 		$settings = [
 			'source'                     => $source,
 			'ratingLayout'               => $this->settings['ratingLayout'] ?? 'stars-field',
@@ -419,7 +186,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			'reviewTitleInputVisible'    => $this->get_bool_setting( 'reviewTitleInputVisible' ),
 			'reviewContentInputVisible'  => $this->get_bool_setting( 'reviewContentInputVisible' ),
 			'commentAuthorAvatarVisible' => $this->get_bool_setting( 'commentAuthorAvatarVisible' ),
-			'icons'                      => $icons,
 		];
 
 		$html = '';
