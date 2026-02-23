@@ -1,13 +1,13 @@
 <?php
 /**
- * Plugin Name: JetReviews x Bricks Bridge
+ * Plugin Name: JetReviews Integration For Bricks
  * Plugin URI:  https://crocoblock.com/plugins/jetreviews/
  * Description: Adds Bricks Builder elements to render JetReviews widgets (without modifying JetReviews).
  * Version:     0.1.6
- * Author:      toiuuwp
+ * Author:      Toiuuwp
  * Author URI:  https://toiuuwp.com
- * Required WP:  5.0
- * Required PHP: 7.0
+ * Requires at least: 5.0
+ * Requires PHP: 7.0
  * License:     GPL-2.0+
  * Text Domain: jet-reviews-bricks-bridge
  */
@@ -112,8 +112,8 @@ final class JetReviews_Bricks_Bridge {
 	public function register_admin_page() {
 		add_submenu_page(
 			'jet-reviews',
-			esc_html__( 'Bricks Bridge', 'jet-reviews-bricks-bridge' ),
-			esc_html__( 'Bricks Bridge', 'jet-reviews-bricks-bridge' ),
+			esc_html__( 'Bricks Integration', 'jet-reviews-bricks-bridge' ),
+			esc_html__( 'Bricks Integration', 'jet-reviews-bricks-bridge' ),
 			'manage_options',
 			self::SLUG,
 			[ $this, 'render_admin_page' ],
@@ -133,7 +133,7 @@ final class JetReviews_Bricks_Bridge {
 
 		if ( $this->runtime['has_bricks'] && $this->runtime['has_jetreviews'] && $this->is_enabled() && ! $this->runtime['element_registered'] ) {
 			echo '<div class="notice notice-warning"><p>';
-			echo esc_html__( 'JetReviews Bridge: Bricks + JetReviews detected but the Bricks element is not registered yet on this request. Open JetReviews → Bricks Bridge to see details.', 'jet-reviews-bricks-bridge' );
+			echo esc_html__( 'JetReviews Integration For Bricks: Bricks + JetReviews detected but the Bricks element is not registered yet on this request. Open JetReviews → Bricks Integration to see details.', 'jet-reviews-bricks-bridge' );
 			echo '</p></div>';
 		}
 	}
@@ -163,7 +163,7 @@ final class JetReviews_Bricks_Bridge {
 		}
 
 		echo '<div class="wrap">';
-		echo '<h1>' . esc_html__( 'JetReviews → Bricks Bridge', 'jet-reviews-bricks-bridge' ) . '</h1>';
+		echo '<h1>' . esc_html__( 'JetReviews → Bricks Integration', 'jet-reviews-bricks-bridge' ) . '</h1>';
 
 		echo '<form method="post" action="">';
 		wp_nonce_field( 'jrbbr_save_settings' );
@@ -184,7 +184,7 @@ final class JetReviews_Bricks_Bridge {
 		echo '<h2>' . esc_html__( 'Debug status', 'jet-reviews-bricks-bridge' ) . '</h2>';
 		echo '<table class="widefat striped" style="max-width: 920px;">';
 		echo '<tbody>';
-		echo '<tr><td><strong>' . esc_html__( 'Bridge version', 'jet-reviews-bricks-bridge' ) . '</strong></td><td>' . esc_html( self::VERSION ) . '</td></tr>';
+		echo '<tr><td><strong>' . esc_html__( 'JetReviews Integration For Bricks', 'jet-reviews-bricks-bridge' ) . '</strong></td><td>' . esc_html( self::VERSION ) . '</td></tr>';
 		echo '<tr><td><strong>' . esc_html__( 'Enabled', 'jet-reviews-bricks-bridge' ) . '</strong></td><td>' . ( $enabled ? '✅' : '❌' ) . '</td></tr>';
 		echo '<tr><td><strong>' . esc_html__( 'Bricks detected', 'jet-reviews-bricks-bridge' ) . '</strong></td><td>' . ( $has_bricks ? '✅' : '❌' ) . ' <code>' . esc_html( $bricks_version ) . '</code></td></tr>';
 		echo '<tr><td><strong>' . esc_html__( 'JetReviews detected', 'jet-reviews-bricks-bridge' ) . '</strong></td><td>' . ( $has_jetreviews ? '✅' : '❌' ) . ' <code>' . esc_html( $jetreviews_version ) . '</code></td></tr>';
@@ -194,7 +194,7 @@ final class JetReviews_Bricks_Bridge {
 
 		echo '<hr />';
 		echo '<h2>' . esc_html__( 'Support', 'jet-reviews-bricks-bridge' ) . '</h2>';
-		echo '<p><strong>' . esc_html__( 'Author:', 'jet-reviews-bricks-bridge' ) . '</strong> <a href="https://toiuuwp.com" target="_blank" rel="noopener">toiuuwp</a></p>';
+		echo '<p><strong>' . esc_html__( 'Author:', 'jet-reviews-bricks-bridge' ) . '</strong> <a href="https://toiuuwp.com" target="_blank" rel="noopener">Toiuuwp</a></p>';
 		echo '<ul style="list-style: disc; padding-left: 22px;">';
 		echo '<li><strong>Web:</strong> <a href="https://toiuuwp.com" target="_blank" rel="noopener">toiuuwp.com</a></li>';
 		echo '<li><strong>Facebook:</strong> <a href="https://www.facebook.com/hungcuong2591" target="_blank" rel="noopener">Facebook</a></li>';
@@ -203,7 +203,6 @@ final class JetReviews_Bricks_Bridge {
 
 		echo '</div>';
 	}
-
 
 	/** Convenience getter for debug. */
 	public function get_runtime() {
