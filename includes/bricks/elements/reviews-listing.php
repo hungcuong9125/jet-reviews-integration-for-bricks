@@ -613,7 +613,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		}
 
 		echo '<div class="jetreviews-reviews-listing" ' . $this->render_attributes( '_root' ) . '>';
-		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $html;
 		echo '</div>';
 	}
 }

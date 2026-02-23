@@ -3,7 +3,7 @@
  * Plugin Name: JetReviews x Bricks Bridge
  * Plugin URI:  https://crocoblock.com/plugins/jetreviews/
  * Description: Adds Bricks Builder elements to render JetReviews widgets (without modifying JetReviews).
- * Version:     0.1.5
+ * Version:     0.1.6
  * Author:      toiuuwp
  * License:     GPL-2.0+
  * Text Domain: jet-reviews-bricks-bridge
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 final class JetReviews_Bricks_Bridge {
 
-	const VERSION = '0.1.5';
+	const VERSION = '0.1.6';
 	const OPTION_ENABLED = 'jrbbr_enabled';
 	const SLUG    = 'jetreviews-bricks-bridge';
 
@@ -96,8 +96,12 @@ final class JetReviews_Bricks_Bridge {
 		$base = plugin_dir_path( __FILE__ ) . 'includes/bricks/elements/';
 
 		\Bricks\Elements::register_element( $base . 'reviews-listing.php' );
+		\Bricks\Elements::register_element( $base . 'static-review.php' );
 
-		if ( isset( \Bricks\Elements::$elements['jetreviews-reviews-listing'] ) ) {
+		if (
+			isset( \Bricks\Elements::$elements['jetreviews-reviews-listing'] )
+			|| isset( \Bricks\Elements::$elements['jetreviews-static-review'] )
+		) {
 			$this->runtime['element_registered'] = true;
 		}
 	}
