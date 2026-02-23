@@ -20,6 +20,15 @@ Adds Bricks Builder elements to render JetReviews widgets without modifying JetR
 
 ## Changelog
 
+### 0.1.6
+- **Added** new **Static Review** element for Bricks Builder (equivalent to Elementor's "Jet Reviews" / Static Review widget).
+  - Repeater-based rating fields (Label, Value, Max).
+  - Stars / Points / Percentage layout modes with progress bar support.
+  - Header with title and total average display.
+  - Summary section with configurable position (right, left, top, bottom), title, text, and legend.
+  - JSON-LD structured data (Schema.org Review markup) with item name, image, description, and author.
+- Uses JetReviews CSS class names (`.jet-review__*`) for seamless style compatibility with JetReviews themes.
+
 ### 0.1.5
 - **Added** Labels control group with 21 customizable text fields, organized into 4 sections:
   - **Header**: No Reviews Message, Singular/Plural Review Count Label, New Review Button, Already Reviewed Message, Moderator Check Message.
