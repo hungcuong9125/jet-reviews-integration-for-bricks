@@ -20,6 +20,14 @@ Adds Bricks Builder elements to render JetReviews widgets without modifying JetR
 
 ## Changelog
 
+### 0.1.5
+- **Added** Labels control group with 21 customizable text fields, organized into 4 sections:
+  - **Header**: No Reviews Message, Singular/Plural Review Count Label, New Review Button, Already Reviewed Message, Moderator Check Message.
+  - **Review Form**: Not Valid Field Message, Author Name/Mail Placeholder, Review Content/Title Placeholder, Submit Review Button, Cancel Button.
+  - **Comment Form**: New Comment Button, Comments Placeholder, Show/Hide Comments Button, Comments Title, Submit Comment Button.
+  - **Reply Form**: Reply Comment Button, Reply Placeholder, Submit Reply Button.
+- Labels override JetReviews defaults when customized. Empty labels fall back to JetReviews built-in translations.
+
 ### 0.1.4
 - **Added** Icons control group with 13 customizable icon pickers (Empty Star, Filled Star, New Review Button, Show Comments Button, New Comment Button, Pinned, Empty Like, Filled Like, Empty Dislike, Filled Dislike, Reply Button, Prev, Next).
 - Icons override JetReviews default SVG icons when customized. Supports FontAwesome, Themify, Ionicons, and custom SVG uploads.
