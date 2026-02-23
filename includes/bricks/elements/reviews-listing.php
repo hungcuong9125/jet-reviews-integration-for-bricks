@@ -135,20 +135,19 @@ class Element_JetReviews_Reviews_Listing extends Element {
 	/**
 	 * Convert Bricks checkbox value to proper boolean.
 	 *
-	 * Bricks stores checked as true and unchecked as either empty string,
-	 * absent key, or false. This helper normalizes the value.
+	 * Bricks checkbox behavior: when CHECKED, the key exists in
+	 * $this->settings (truthy). When UNCHECKED, the key is completely
+	 * ABSENT from $this->settings — regardless of the 'default' value
+	 * defined in set_controls(). Therefore:
+	 *   - key exists   → user checked   → true
+	 *   - key absent   → user unchecked → false
 	 *
-	 * @param string $key     Settings key.
-	 * @param bool   $default Default value.
+	 * @param string $key Settings key.
 	 *
 	 * @return bool
 	 */
-	private function get_bool_setting( $key, $default = true ) {
-		if ( ! isset( $this->settings[ $key ] ) ) {
-			return $default;
-		}
-
-		return filter_var( $this->settings[ $key ], FILTER_VALIDATE_BOOLEAN );
+	private function get_bool_setting( $key ) {
+		return ! empty( $this->settings[ $key ] );
 	}
 
 	public function render() {
@@ -182,11 +181,11 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			'ratingInputType'            => $this->settings['ratingInputType'] ?? 'slider-input',
 			'reviewRatingType'           => $this->settings['reviewRatingType'] ?? 'average',
 			'reviewsPerPage'             => isset( $this->settings['reviewsPerPage'] ) ? intval( $this->settings['reviewsPerPage'] ) : 10,
-			'reviewAuthorAvatarVisible'  => $this->get_bool_setting( 'reviewAuthorAvatarVisible', true ),
-			'reviewTitleVisible'         => $this->get_bool_setting( 'reviewTitleVisible', true ),
-			'reviewTitleInputVisible'    => $this->get_bool_setting( 'reviewTitleInputVisible', true ),
-			'reviewContentInputVisible'  => $this->get_bool_setting( 'reviewContentInputVisible', true ),
-			'commentAuthorAvatarVisible' => $this->get_bool_setting( 'commentAuthorAvatarVisible', true ),
+			'reviewAuthorAvatarVisible'  => $this->get_bool_setting( 'reviewAuthorAvatarVisible' ),
+			'reviewTitleVisible'         => $this->get_bool_setting( 'reviewTitleVisible' ),
+			'reviewTitleInputVisible'    => $this->get_bool_setting( 'reviewTitleInputVisible' ),
+			'reviewContentInputVisible'  => $this->get_bool_setting( 'reviewContentInputVisible' ),
+			'commentAuthorAvatarVisible' => $this->get_bool_setting( 'commentAuthorAvatarVisible' ),
 		];
 
 		$html = '';
