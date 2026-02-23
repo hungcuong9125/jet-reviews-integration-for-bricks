@@ -36,7 +36,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			'rerender'   => true,
 		];
 
-				$this->controls['ratingLayout'] = [
+		$this->controls['ratingLayout'] = [
 			'tab'      => 'content',
 			'label'    => esc_html__( 'Rating layout', 'jet-reviews-bricks-bridge' ),
 			'type'     => 'select',
@@ -132,6 +132,25 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		];
 	}
 
+	/**
+	 * Convert Bricks checkbox value to proper boolean.
+	 *
+	 * Bricks stores checked as true and unchecked as either empty string,
+	 * absent key, or false. This helper normalizes the value.
+	 *
+	 * @param string $key     Settings key.
+	 * @param bool   $default Default value.
+	 *
+	 * @return bool
+	 */
+	private function get_bool_setting( $key, $default = true ) {
+		if ( ! isset( $this->settings[ $key ] ) ) {
+			return $default;
+		}
+
+		return filter_var( $this->settings[ $key ], FILTER_VALIDATE_BOOLEAN );
+	}
+
 	public function render() {
 		if ( ! function_exists( 'jet_reviews' ) ) {
 			$this->render_element_placeholder( [ 'title' => esc_html__( 'JetReviews plugin is not active.', 'jet-reviews-bricks-bridge' ) ], 'warning' );
@@ -143,7 +162,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			return;
 		}
 
-		// Allow opting out of rendering in builder to keep editor responsive.
 		$is_builder_context = ( function_exists( 'bricks_is_builder_call' ) && bricks_is_builder_call() )
 			|| ( function_exists( 'bricks_is_builder_iframe' ) && bricks_is_builder_iframe() )
 			|| ( function_exists( 'bricks_is_builder_main' ) && bricks_is_builder_main() );
@@ -164,13 +182,12 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			'ratingInputType'            => $this->settings['ratingInputType'] ?? 'slider-input',
 			'reviewRatingType'           => $this->settings['reviewRatingType'] ?? 'average',
 			'reviewsPerPage'             => isset( $this->settings['reviewsPerPage'] ) ? intval( $this->settings['reviewsPerPage'] ) : 10,
-			'reviewAuthorAvatarVisible'  => isset( $this->settings['reviewAuthorAvatarVisible'] ) ? filter_var( $this->settings['reviewAuthorAvatarVisible'], FILTER_VALIDATE_BOOLEAN ) : true,
-			'reviewTitleVisible'         => isset( $this->settings['reviewTitleVisible'] ) ? filter_var( $this->settings['reviewTitleVisible'], FILTER_VALIDATE_BOOLEAN ) : true,
-			'reviewTitleInputVisible'    => isset( $this->settings['reviewTitleInputVisible'] ) ? filter_var( $this->settings['reviewTitleInputVisible'], FILTER_VALIDATE_BOOLEAN ) : true,
-			'reviewContentInputVisible'  => isset( $this->settings['reviewContentInputVisible'] ) ? filter_var( $this->settings['reviewContentInputVisible'], FILTER_VALIDATE_BOOLEAN ) : true,
-			'commentAuthorAvatarVisible' => isset( $this->settings['commentAuthorAvatarVisible'] ) ? filter_var( $this->settings['commentAuthorAvatarVisible'], FILTER_VALIDATE_BOOLEAN ) : true,
+			'reviewAuthorAvatarVisible'  => $this->get_bool_setting( 'reviewAuthorAvatarVisible', true ),
+			'reviewTitleVisible'         => $this->get_bool_setting( 'reviewTitleVisible', true ),
+			'reviewTitleInputVisible'    => $this->get_bool_setting( 'reviewTitleInputVisible', true ),
+			'reviewContentInputVisible'  => $this->get_bool_setting( 'reviewContentInputVisible', true ),
+			'commentAuthorAvatarVisible' => $this->get_bool_setting( 'commentAuthorAvatarVisible', true ),
 		];
-
 
 		$html = '';
 
@@ -188,7 +205,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 				$html = '<pre class="jetreviews-bricks-error" style="white-space:pre-wrap">' . esc_html( $e->getMessage() ) . '</pre>';
 			}
 		}
-
 
 		if ( empty( $html ) ) {
 			$this->render_element_placeholder( [ 'title' => esc_html__( 'JetReviews rendered empty output.', 'jet-reviews-bricks-bridge' ) ] );
