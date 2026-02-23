@@ -5,6 +5,9 @@
  * Description: Adds Bricks Builder elements to render JetReviews widgets (without modifying JetReviews).
  * Version:     0.1.6
  * Author:      toiuuwp
+ * Author URI:  https://toiuuwp.com
+ * Required WP:  5.0
+ * Required PHP: 7.0
  * License:     GPL-2.0+
  * Text Domain: jet-reviews-bricks-bridge
  */
@@ -191,7 +194,7 @@ final class JetReviews_Bricks_Bridge {
 
 		echo '<hr />';
 		echo '<h2>' . esc_html__( 'Support', 'jet-reviews-bricks-bridge' ) . '</h2>';
-		echo '<p><strong>' . esc_html__( 'Author:', 'jet-reviews-bricks-bridge' ) . '</strong> toiuuwp</p>';
+		echo '<p><strong>' . esc_html__( 'Author:', 'jet-reviews-bricks-bridge' ) . '</strong> <a href="https://toiuuwp.com" target="_blank" rel="noopener">toiuuwp</a></p>';
 		echo '<ul style="list-style: disc; padding-left: 22px;">';
 		echo '<li><strong>Web:</strong> <a href="https://toiuuwp.com" target="_blank" rel="noopener">toiuuwp.com</a></li>';
 		echo '<li><strong>Facebook:</strong> <a href="https://www.facebook.com/hungcuong2591" target="_blank" rel="noopener">Facebook</a></li>';
