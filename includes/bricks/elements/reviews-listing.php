@@ -30,6 +30,11 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			'title' => esc_html__( 'Icons', 'jet-reviews-bricks-bridge' ),
 			'tab'   => 'content',
 		];
+
+		$this->control_groups['labels'] = [
+			'title' => esc_html__( 'Labels', 'jet-reviews-bricks-bridge' ),
+			'tab'   => 'content',
+		];
 	}
 
 	public function set_controls() {
@@ -154,6 +159,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			'rerender'    => true,
 		];
 
+		// --- Icons ---
 		$icon_controls = [
 			'emptyStarIcon'           => [ 'Empty Star Icon',           'far fa-star' ],
 			'filledStarIcon'          => [ 'Filled Star Icon',          'fas fa-star' ],
@@ -183,6 +189,236 @@ class Element_JetReviews_Reviews_Listing extends Element {
 				'rerender' => true,
 			];
 		}
+
+		// --- Labels: Header ---
+		$this->controls['labelHeaderSeparator'] = [
+			'tab'   => 'content',
+			'group' => 'labels',
+			'type'  => 'separator',
+			'label' => esc_html__( 'Header', 'jet-reviews-bricks-bridge' ),
+		];
+
+		$this->controls['noReviewsLabel'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'No Reviews Message', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'No reviews found', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['singularReviewCountLabel'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Singular Review Count Label', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Review', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['pluralReviewCountLabel'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Plural Review Count Label', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Reviews', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['newReviewButton'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'New Review Button', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Write a review', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['alreadyReviewedMessage'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Already Reviewed Message', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( '*Already reviewed', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['moderatorCheckMessage'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Moderator Check Message', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( '*Your review must be approved by the moderator', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		// --- Labels: Review Form ---
+		$this->controls['labelReviewFormSeparator'] = [
+			'tab'   => 'content',
+			'group' => 'labels',
+			'type'  => 'separator',
+			'label' => esc_html__( 'Review Form', 'jet-reviews-bricks-bridge' ),
+		];
+
+		$this->controls['notValidFieldMessage'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Not Valid Field Message', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( '*This field is required or not valid', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['authorNamePlaceholder'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Author Name Placeholder', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Your Name', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['authorMailPlaceholder'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Author Mail Placeholder', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Your Mail', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['reviewContentPlaceholder'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Review Content Placeholder', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Your review', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['reviewTitlePlaceholder'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Review Title Placeholder', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Title of your review', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['submitReviewButton'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Submit Review Button', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Submit a review', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['cancelButtonLabel'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Cancel Button', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Cancel', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		// --- Labels: Comment Form ---
+		$this->controls['labelCommentFormSeparator'] = [
+			'tab'   => 'content',
+			'group' => 'labels',
+			'type'  => 'separator',
+			'label' => esc_html__( 'Comment Form', 'jet-reviews-bricks-bridge' ),
+		];
+
+		$this->controls['newCommentButton'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'New Comment Button', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Leave a comment', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['commentPlaceholder'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Comments Placeholder', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Leave your comments', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['showCommentsButton'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Show Comments Button', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Show Comments', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['hideCommentsButton'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Hide Comments Button', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Hide Comments', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['commentsTitle'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Comments Title', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Comments', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['submitCommentButton'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Submit Comment Button', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Submit Comment', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		// --- Labels: Reply Form ---
+		$this->controls['labelReplyFormSeparator'] = [
+			'tab'   => 'content',
+			'group' => 'labels',
+			'type'  => 'separator',
+			'label' => esc_html__( 'Reply Form', 'jet-reviews-bricks-bridge' ),
+		];
+
+		$this->controls['replyButton'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Reply Comment Button', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Reply', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['replyPlaceholder'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Reply Placeholder', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Leave your reply', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
+
+		$this->controls['submitReplyButton'] = [
+			'tab'         => 'content',
+			'group'       => 'labels',
+			'label'       => esc_html__( 'Submit Reply Button', 'jet-reviews-bricks-bridge' ),
+			'type'        => 'text',
+			'placeholder' => esc_html__( 'Submit a reply', 'jet-reviews-bricks-bridge' ),
+			'rerender'    => true,
+		];
 	}
 
 	/**
@@ -196,14 +432,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 	/**
 	 * Render a Bricks icon control value to an HTML string.
-	 *
-	 * Compatible with all Bricks versions: renders icon manually
-	 * based on the icon data structure instead of relying on
-	 * Helpers::render_control_icon() which may not exist.
-	 *
-	 * Bricks icon data:
-	 *   Font icon → ['library' => 'fontawesome', 'icon' => 'fas fa-star']
-	 *   SVG file  → ['library' => 'svg', 'id' => 123, 'url' => '...']
 	 *
 	 * @param string      $key     Settings key.
 	 * @param string|null $default Fallback HTML if icon is not set.
@@ -239,6 +467,56 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		}
 
 		return $default;
+	}
+
+	/**
+	 * Build the labels array from Bricks settings.
+	 *
+	 * Only includes labels that the user has explicitly set (non-empty).
+	 * Review_Listing_Render merges these with its own defaults,
+	 * so empty/missing labels will use the JetReviews defaults.
+	 *
+	 * @return array
+	 */
+	private function build_labels() {
+		$label_keys = [
+			'noReviewsLabel',
+			'singularReviewCountLabel',
+			'pluralReviewCountLabel',
+			'newReviewButton',
+			'alreadyReviewedMessage',
+			'moderatorCheckMessage',
+			'notValidFieldMessage',
+			'authorNamePlaceholder',
+			'authorMailPlaceholder',
+			'reviewContentPlaceholder',
+			'reviewTitlePlaceholder',
+			'submitReviewButton',
+			'cancelButtonLabel',
+			'newCommentButton',
+			'commentPlaceholder',
+			'showCommentsButton',
+			'hideCommentsButton',
+			'submitCommentButton',
+			'replyButton',
+			'replyPlaceholder',
+			'submitReplyButton',
+		];
+
+		$labels = [];
+
+		foreach ( $label_keys as $key ) {
+			if ( ! empty( $this->settings[ $key ] ) ) {
+				$labels[ $key ] = esc_attr( $this->settings[ $key ] );
+			}
+		}
+
+		// commentsTitle uses Cyrillic 'с' in JetReviews source for backward compatibility
+		if ( ! empty( $this->settings['commentsTitle'] ) ) {
+			$labels["\xD1\x81ommentsTitle"] = esc_attr( $this->settings['commentsTitle'] );
+		}
+
+		return $labels;
 	}
 
 	public function render() {
@@ -309,6 +587,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			'reviewContentInputVisible'  => $this->get_bool_setting( 'reviewContentInputVisible' ),
 			'commentAuthorAvatarVisible' => $this->get_bool_setting( 'commentAuthorAvatarVisible' ),
 			'icons'                      => $icons,
+			'labels'                     => $this->build_labels(),
 		];
 
 		$html = '';

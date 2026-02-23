@@ -3,7 +3,7 @@
  * Plugin Name: JetReviews x Bricks Bridge
  * Plugin URI:  https://crocoblock.com/plugins/jetreviews/
  * Description: Adds Bricks Builder elements to render JetReviews widgets (without modifying JetReviews).
- * Version:     0.1.4
+ * Version:     0.1.5
  * Author:      toiuuwp
  * License:     GPL-2.0+
  * Text Domain: jet-reviews-bricks-bridge
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 final class JetReviews_Bricks_Bridge {
 
-	const VERSION = '0.1.4';
+	const VERSION = '0.1.5';
 	const OPTION_ENABLED = 'jrbbr_enabled';
 	const SLUG    = 'jetreviews-bricks-bridge';
 
@@ -190,6 +190,8 @@ final class JetReviews_Bricks_Bridge {
 		echo '<p><strong>' . esc_html__( 'Author:', 'jet-reviews-bricks-bridge' ) . '</strong> toiuuwp</p>';
 		echo '<ul style="list-style: disc; padding-left: 22px;">';
 		echo '<li><strong>Web:</strong> <a href="https://toiuuwp.com" target="_blank" rel="noopener">toiuuwp.com</a></li>';
+		echo '<li><strong>Facebook:</strong> <a href="https://www.facebook.com/hungcuong2591" target="_blank" rel="noopener">Facebook</a></li>';
+		echo '<li><strong>Discord:</strong> <a href="#" target="_blank" rel="noopener">skeleton3188</a></li>';
 		echo '</ul>';
 
 		echo '</div>';
