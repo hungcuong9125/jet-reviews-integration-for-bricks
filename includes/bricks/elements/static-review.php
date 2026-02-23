@@ -21,7 +21,7 @@ class Element_JetReviews_Static_Review extends Element {
 	public $css_selector = '.jetreviews-static-review';
 
 	public function get_label() {
-		return esc_html__( 'Static Review (JetReviews)', 'jet-reviews-bricks-bridge' );
+		return esc_html__( 'Static Review', 'jet-reviews-bricks-bridge' );
 	}
 
 	public function set_control_groups() {

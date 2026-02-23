@@ -17,7 +17,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 	public $css_selector = '.jetreviews-reviews-listing';
 
 	public function get_label() {
-		return esc_html__( 'Reviews Listing (JetReviews)', 'jet-reviews-bricks-bridge' );
+		return esc_html__( 'Reviews Listing', 'jet-reviews-bricks-bridge' );
 	}
 
 	public function set_control_groups() {
@@ -511,7 +511,6 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			}
 		}
 
-		// commentsTitle uses Cyrillic 'с' in JetReviews source for backward compatibility
 		if ( ! empty( $this->settings['commentsTitle'] ) ) {
 			$labels["\xD1\x81ommentsTitle"] = esc_attr( $this->settings['commentsTitle'] );
 		}

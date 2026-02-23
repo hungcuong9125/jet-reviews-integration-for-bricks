@@ -1,4 +1,4 @@
-# JetReviews x Bricks Bridge
+# JetReviews Integration For Bricks
 
 Adds Bricks Builder elements to render JetReviews widgets without modifying JetReviews core files.
 
@@ -11,7 +11,7 @@ Adds Bricks Builder elements to render JetReviews widgets without modifying JetR
 ## Installation
 1. Upload the plugin files to the `/wp-content/plugins/` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
-3. (Optional) Go to **JetReviews -> Bricks Bridge** to enable/disable the integration and check debug info.
+3. (Optional) Go to **JetReviews -> Bricks Integration** to enable/disable the integration and check debug info.
 
 ## Requirements
 - WordPress 5.0+
@@ -44,7 +44,7 @@ Adds Bricks Builder elements to render JetReviews widgets without modifying JetR
 
 ### 0.1.3
 - **Fixed** visibility toggles (Show review author avatar, Show review title, Show review title input, Show review content input, Show comment author avatar) now work correctly by properly converting Bricks checkbox values to booleans that JetReviews Vue frontend expects.
-- **Fixed** admin submenu "Bricks Bridge" now correctly appears after "Settings" instead of at the top of the JetReviews menu.
+- **Fixed** admin submenu "Bricks Integration" now correctly appears after "Settings" instead of at the top of the JetReviews menu.
 - **Fixed** admin submenu URL was broken (`/wp-admin/jetreviews-bricks-bridge` instead of `admin.php?page=jetreviews-bricks-bridge`), resolved by setting correct `admin_menu` priority.
 - Cleaned up admin page code.
 
