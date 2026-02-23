@@ -3,7 +3,7 @@
  * Plugin Name: JetReviews x Bricks Bridge
  * Plugin URI:  https://crocoblock.com/plugins/jetreviews/
  * Description: Adds Bricks Builder elements to render JetReviews widgets (without modifying JetReviews).
- * Version:     0.1.3
+ * Version:     0.1.4
  * Author:      toiuuwp
  * License:     GPL-2.0+
  * Text Domain: jet-reviews-bricks-bridge
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 final class JetReviews_Bricks_Bridge {
 
-	const VERSION = '0.1.3';
+	const VERSION = '0.1.4';
 	const OPTION_ENABLED = 'jrbbr_enabled';
 	const SLUG    = 'jetreviews-bricks-bridge';
 
