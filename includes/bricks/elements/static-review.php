@@ -1,5 +1,5 @@
 <?php
-namespace JetReviews_Bricks_Bridge\Elements;
+namespace JetReviews_Integration_Bricks\Elements;
 
 use Bricks\Element;
 
@@ -21,32 +21,32 @@ class Element_JetReviews_Static_Review extends Element {
 	public $css_selector = '.jetreviews-static-review';
 
 	public function get_label() {
-		return esc_html__( 'Static Review', 'jet-reviews-bricks-bridge' );
+		return esc_html__( 'Static Review', 'jetreviews-integration-bricks' );
 	}
 
 	public function set_control_groups() {
 		$this->control_groups['content'] = [
-			'title' => esc_html__( 'Content', 'jet-reviews-bricks-bridge' ),
+			'title' => esc_html__( 'Content', 'jetreviews-integration-bricks' ),
 			'tab'   => 'content',
 		];
 
 		$this->control_groups['header_settings'] = [
-			'title' => esc_html__( 'Header Settings', 'jet-reviews-bricks-bridge' ),
+			'title' => esc_html__( 'Header Settings', 'jetreviews-integration-bricks' ),
 			'tab'   => 'content',
 		];
 
 		$this->control_groups['fields_settings'] = [
-			'title' => esc_html__( 'Fields Settings', 'jet-reviews-bricks-bridge' ),
+			'title' => esc_html__( 'Fields Settings', 'jetreviews-integration-bricks' ),
 			'tab'   => 'content',
 		];
 
 		$this->control_groups['summary_settings'] = [
-			'title' => esc_html__( 'Summary Settings', 'jet-reviews-bricks-bridge' ),
+			'title' => esc_html__( 'Summary Settings', 'jetreviews-integration-bricks' ),
 			'tab'   => 'content',
 		];
 
 		$this->control_groups['structured_data'] = [
-			'title' => esc_html__( 'Structured Data', 'jet-reviews-bricks-bridge' ),
+			'title' => esc_html__( 'Structured Data', 'jetreviews-integration-bricks' ),
 			'tab'   => 'content',
 		];
 	}
@@ -57,23 +57,23 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['reviewFields'] = [
 			'tab'           => 'content',
 			'group'         => 'content',
-			'label'         => esc_html__( 'Review Fields', 'jet-reviews-bricks-bridge' ),
+			'label'         => esc_html__( 'Review Fields', 'jetreviews-integration-bricks' ),
 			'type'          => 'repeater',
 			'titleProperty' => 'label',
 			'fields'        => [
 				'label' => [
-					'label' => esc_html__( 'Label', 'jet-reviews-bricks-bridge' ),
+					'label' => esc_html__( 'Label', 'jetreviews-integration-bricks' ),
 					'type'  => 'text',
 				],
 				'value' => [
-					'label'   => esc_html__( 'Value', 'jet-reviews-bricks-bridge' ),
+					'label'   => esc_html__( 'Value', 'jetreviews-integration-bricks' ),
 					'type'    => 'number',
 					'min'     => 0,
 					'max'     => 100,
 					'step'    => 0.1,
 				],
 				'max' => [
-					'label'   => esc_html__( 'Max', 'jet-reviews-bricks-bridge' ),
+					'label'   => esc_html__( 'Max', 'jetreviews-integration-bricks' ),
 					'type'    => 'number',
 					'min'     => 1,
 					'max'     => 100,
@@ -82,17 +82,17 @@ class Element_JetReviews_Static_Review extends Element {
 			],
 			'default' => [
 				[
-					'label' => esc_html__( 'Design', 'jet-reviews-bricks-bridge' ),
+					'label' => esc_html__( 'Design', 'jetreviews-integration-bricks' ),
 					'value' => 9,
 					'max'   => 10,
 				],
 				[
-					'label' => esc_html__( 'Features', 'jet-reviews-bricks-bridge' ),
+					'label' => esc_html__( 'Features', 'jetreviews-integration-bricks' ),
 					'value' => 8,
 					'max'   => 10,
 				],
 				[
-					'label' => esc_html__( 'Performance', 'jet-reviews-bricks-bridge' ),
+					'label' => esc_html__( 'Performance', 'jetreviews-integration-bricks' ),
 					'value' => 9.5,
 					'max'   => 10,
 				],
@@ -103,30 +103,30 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['summaryTitle'] = [
 			'tab'         => 'content',
 			'group'       => 'content',
-			'label'       => esc_html__( 'Summary Title', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Summary Title', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Review Summary Title', 'jet-reviews-bricks-bridge' ),
-			'default'     => esc_html__( 'Review Summary Title', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Review Summary Title', 'jetreviews-integration-bricks' ),
+			'default'     => esc_html__( 'Review Summary Title', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['summaryText'] = [
 			'tab'         => 'content',
 			'group'       => 'content',
-			'label'       => esc_html__( 'Summary Text', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Summary Text', 'jetreviews-integration-bricks' ),
 			'type'        => 'textarea',
-			'placeholder' => esc_html__( 'Review Summary Description', 'jet-reviews-bricks-bridge' ),
-			'default'     => esc_html__( 'Review Summary Description', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Review Summary Description', 'jetreviews-integration-bricks' ),
+			'default'     => esc_html__( 'Review Summary Description', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['summaryLegend'] = [
 			'tab'         => 'content',
 			'group'       => 'content',
-			'label'       => esc_html__( 'Summary Legend', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Summary Legend', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Nice!', 'jet-reviews-bricks-bridge' ),
-			'default'     => esc_html__( 'Nice!', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Nice!', 'jetreviews-integration-bricks' ),
+			'default'     => esc_html__( 'Nice!', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
@@ -134,21 +134,21 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['reviewTitle'] = [
 			'tab'         => 'content',
 			'group'       => 'header_settings',
-			'label'       => esc_html__( 'Title', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Title', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Product Review', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Product Review', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['totalAverageLayout'] = [
 			'tab'      => 'content',
 			'group'    => 'header_settings',
-			'label'    => esc_html__( 'Average Layout', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Average Layout', 'jetreviews-integration-bricks' ),
 			'type'     => 'select',
 			'options'  => [
-				'stars'      => esc_html__( 'Stars', 'jet-reviews-bricks-bridge' ),
-				'percentage' => esc_html__( 'Percentage', 'jet-reviews-bricks-bridge' ),
-				'points'     => esc_html__( 'Points', 'jet-reviews-bricks-bridge' ),
+				'stars'      => esc_html__( 'Stars', 'jetreviews-integration-bricks' ),
+				'percentage' => esc_html__( 'Percentage', 'jetreviews-integration-bricks' ),
+				'points'     => esc_html__( 'Points', 'jetreviews-integration-bricks' ),
 			],
 			'default'  => 'points',
 			'rerender' => true,
@@ -157,7 +157,7 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['totalAverageProgressbar'] = [
 			'tab'      => 'content',
 			'group'    => 'header_settings',
-			'label'    => esc_html__( 'Show Progressbar', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Show Progressbar', 'jetreviews-integration-bricks' ),
 			'type'     => 'checkbox',
 			'default'  => false,
 			'rerender' => true,
@@ -167,11 +167,11 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['totalAverageValuePosition'] = [
 			'tab'      => 'content',
 			'group'    => 'header_settings',
-			'label'    => esc_html__( 'Value Position', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Value Position', 'jetreviews-integration-bricks' ),
 			'type'     => 'select',
 			'options'  => [
-				'above'  => esc_html__( 'Above Progressbar', 'jet-reviews-bricks-bridge' ),
-				'inside' => esc_html__( 'Inside Progressbar', 'jet-reviews-bricks-bridge' ),
+				'above'  => esc_html__( 'Above Progressbar', 'jetreviews-integration-bricks' ),
+				'inside' => esc_html__( 'Inside Progressbar', 'jetreviews-integration-bricks' ),
 			],
 			'default'  => 'above',
 			'rerender' => true,
@@ -182,12 +182,12 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['fieldsLayout'] = [
 			'tab'      => 'content',
 			'group'    => 'fields_settings',
-			'label'    => esc_html__( 'Layout', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Layout', 'jetreviews-integration-bricks' ),
 			'type'     => 'select',
 			'options'  => [
-				'stars'      => esc_html__( 'Stars', 'jet-reviews-bricks-bridge' ),
-				'percentage' => esc_html__( 'Percentage', 'jet-reviews-bricks-bridge' ),
-				'points'     => esc_html__( 'Points', 'jet-reviews-bricks-bridge' ),
+				'stars'      => esc_html__( 'Stars', 'jetreviews-integration-bricks' ),
+				'percentage' => esc_html__( 'Percentage', 'jetreviews-integration-bricks' ),
+				'points'     => esc_html__( 'Points', 'jetreviews-integration-bricks' ),
 			],
 			'default'  => 'points',
 			'rerender' => true,
@@ -196,7 +196,7 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['fieldsProgressbar'] = [
 			'tab'      => 'content',
 			'group'    => 'fields_settings',
-			'label'    => esc_html__( 'Show Progressbar', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Show Progressbar', 'jetreviews-integration-bricks' ),
 			'type'     => 'checkbox',
 			'default'  => true,
 			'rerender' => true,
@@ -206,11 +206,11 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['fieldsValuePosition'] = [
 			'tab'      => 'content',
 			'group'    => 'fields_settings',
-			'label'    => esc_html__( 'Value Position', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Value Position', 'jetreviews-integration-bricks' ),
 			'type'     => 'select',
 			'options'  => [
-				'above'  => esc_html__( 'Above Progressbar', 'jet-reviews-bricks-bridge' ),
-				'inside' => esc_html__( 'Inside Progressbar', 'jet-reviews-bricks-bridge' ),
+				'above'  => esc_html__( 'Above Progressbar', 'jetreviews-integration-bricks' ),
+				'inside' => esc_html__( 'Inside Progressbar', 'jetreviews-integration-bricks' ),
 			],
 			'default'  => 'above',
 			'rerender' => true,
@@ -220,9 +220,9 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['fieldsLabelSuffix'] = [
 			'tab'         => 'content',
 			'group'       => 'fields_settings',
-			'label'       => esc_html__( 'Label Suffix', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Label Suffix', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'e.g. :', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'e.g. :', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
@@ -230,13 +230,13 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['summaryResultPosition'] = [
 			'tab'      => 'content',
 			'group'    => 'summary_settings',
-			'label'    => esc_html__( 'Results Block Position', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Results Block Position', 'jetreviews-integration-bricks' ),
 			'type'     => 'select',
 			'options'  => [
-				'right'  => esc_html__( 'Right', 'jet-reviews-bricks-bridge' ),
-				'bottom' => esc_html__( 'Bottom', 'jet-reviews-bricks-bridge' ),
-				'left'   => esc_html__( 'Left', 'jet-reviews-bricks-bridge' ),
-				'top'    => esc_html__( 'Top', 'jet-reviews-bricks-bridge' ),
+				'right'  => esc_html__( 'Right', 'jetreviews-integration-bricks' ),
+				'bottom' => esc_html__( 'Bottom', 'jetreviews-integration-bricks' ),
+				'left'   => esc_html__( 'Left', 'jetreviews-integration-bricks' ),
+				'top'    => esc_html__( 'Top', 'jetreviews-integration-bricks' ),
 			],
 			'default'  => 'right',
 			'rerender' => true,
@@ -245,12 +245,12 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['summaryLayout'] = [
 			'tab'      => 'content',
 			'group'    => 'summary_settings',
-			'label'    => esc_html__( 'Summary Average Layout', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Summary Average Layout', 'jetreviews-integration-bricks' ),
 			'type'     => 'select',
 			'options'  => [
-				'stars'      => esc_html__( 'Stars', 'jet-reviews-bricks-bridge' ),
-				'percentage' => esc_html__( 'Percentage', 'jet-reviews-bricks-bridge' ),
-				'points'     => esc_html__( 'Points', 'jet-reviews-bricks-bridge' ),
+				'stars'      => esc_html__( 'Stars', 'jetreviews-integration-bricks' ),
+				'percentage' => esc_html__( 'Percentage', 'jetreviews-integration-bricks' ),
+				'points'     => esc_html__( 'Points', 'jetreviews-integration-bricks' ),
 			],
 			'default'  => 'points',
 			'rerender' => true,
@@ -259,7 +259,7 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['summaryProgressbar'] = [
 			'tab'      => 'content',
 			'group'    => 'summary_settings',
-			'label'    => esc_html__( 'Show Progressbar', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Show Progressbar', 'jetreviews-integration-bricks' ),
 			'type'     => 'checkbox',
 			'default'  => false,
 			'rerender' => true,
@@ -269,11 +269,11 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['summaryValuePosition'] = [
 			'tab'      => 'content',
 			'group'    => 'summary_settings',
-			'label'    => esc_html__( 'Value Position', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Value Position', 'jetreviews-integration-bricks' ),
 			'type'     => 'select',
 			'options'  => [
-				'above'  => esc_html__( 'Above Progressbar', 'jet-reviews-bricks-bridge' ),
-				'inside' => esc_html__( 'Inside Progressbar', 'jet-reviews-bricks-bridge' ),
+				'above'  => esc_html__( 'Above Progressbar', 'jetreviews-integration-bricks' ),
+				'inside' => esc_html__( 'Inside Progressbar', 'jetreviews-integration-bricks' ),
 			],
 			'default'  => 'above',
 			'rerender' => true,
@@ -284,7 +284,7 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['addSdata'] = [
 			'tab'      => 'content',
 			'group'    => 'structured_data',
-			'label'    => esc_html__( 'Add Structured Data', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Add Structured Data', 'jetreviews-integration-bricks' ),
 			'type'     => 'checkbox',
 			'default'  => false,
 			'rerender' => true,
@@ -293,9 +293,9 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['sdataItemName'] = [
 			'tab'         => 'content',
 			'group'       => 'structured_data',
-			'label'       => esc_html__( 'Review Item Name', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Review Item Name', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Product Name', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Product Name', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 			'required'    => [ 'addSdata', '!=', '' ],
 		];
@@ -303,7 +303,7 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['sdataItemImage'] = [
 			'tab'      => 'content',
 			'group'    => 'structured_data',
-			'label'    => esc_html__( 'Review Item Image', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Review Item Image', 'jetreviews-integration-bricks' ),
 			'type'     => 'image',
 			'rerender' => true,
 			'required' => [ 'addSdata', '!=', '' ],
@@ -312,9 +312,9 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['sdataItemDescription'] = [
 			'tab'         => 'content',
 			'group'       => 'structured_data',
-			'label'       => esc_html__( 'Review Item Description', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Review Item Description', 'jetreviews-integration-bricks' ),
 			'type'        => 'textarea',
-			'placeholder' => esc_html__( 'Item description for structured data', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Item description for structured data', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 			'required'    => [ 'addSdata', '!=', '' ],
 		];
@@ -322,9 +322,9 @@ class Element_JetReviews_Static_Review extends Element {
 		$this->controls['sdataReviewAuthor'] = [
 			'tab'         => 'content',
 			'group'       => 'structured_data',
-			'label'       => esc_html__( 'Review Author Name', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Review Author Name', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Author Name', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Author Name', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 			'required'    => [ 'addSdata', '!=', '' ],
 		];
@@ -470,7 +470,7 @@ class Element_JetReviews_Static_Review extends Element {
 
 		if ( empty( $fields ) ) {
 			$this->render_element_placeholder( [
-				'title' => esc_html__( 'Add review fields to display.', 'jet-reviews-bricks-bridge' ),
+				'title' => esc_html__( 'Add review fields to display.', 'jetreviews-integration-bricks' ),
 			] );
 			return;
 		}

@@ -1,5 +1,5 @@
 <?php
-namespace JetReviews_Bricks_Bridge\Elements;
+namespace JetReviews_Integration_Bricks\Elements;
 
 use Bricks\Element;
 
@@ -17,22 +17,22 @@ class Element_JetReviews_Reviews_Listing extends Element {
 	public $css_selector = '.jetreviews-reviews-listing';
 
 	public function get_label() {
-		return esc_html__( 'Reviews Listing', 'jet-reviews-bricks-bridge' );
+		return esc_html__( 'Reviews Listing', 'jetreviews-integration-bricks' );
 	}
 
 	public function set_control_groups() {
 		$this->control_groups['settings'] = [
-			'title' => esc_html__( 'Settings', 'jet-reviews-bricks-bridge' ),
+			'title' => esc_html__( 'Settings', 'jetreviews-integration-bricks' ),
 			'tab'   => 'content',
 		];
 
 		$this->control_groups['icons'] = [
-			'title' => esc_html__( 'Icons', 'jet-reviews-bricks-bridge' ),
+			'title' => esc_html__( 'Icons', 'jetreviews-integration-bricks' ),
 			'tab'   => 'content',
 		];
 
 		$this->control_groups['labels'] = [
-			'title' => esc_html__( 'Labels', 'jet-reviews-bricks-bridge' ),
+			'title' => esc_html__( 'Labels', 'jetreviews-integration-bricks' ),
 			'tab'   => 'content',
 		];
 	}
@@ -46,7 +46,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		$this->controls['source'] = [
 			'tab'        => 'content',
 			'group'      => 'settings',
-			'label'      => esc_html__( 'Source', 'jet-reviews-bricks-bridge' ),
+			'label'      => esc_html__( 'Source', 'jetreviews-integration-bricks' ),
 			'type'       => 'select',
 			'options'    => $source_options,
 			'default'    => 'post',
@@ -57,11 +57,11 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		$this->controls['ratingLayout'] = [
 			'tab'      => 'content',
 			'group'    => 'settings',
-			'label'    => esc_html__( 'Rating layout', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Rating layout', 'jetreviews-integration-bricks' ),
 			'type'     => 'select',
 			'options'  => [
-				'stars-field'  => esc_html__( 'Stars', 'jet-reviews-bricks-bridge' ),
-				'points-field' => esc_html__( 'Points', 'jet-reviews-bricks-bridge' ),
+				'stars-field'  => esc_html__( 'Stars', 'jetreviews-integration-bricks' ),
+				'points-field' => esc_html__( 'Points', 'jetreviews-integration-bricks' ),
 			],
 			'default'  => 'stars-field',
 			'rerender' => true,
@@ -70,11 +70,11 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		$this->controls['ratingInputType'] = [
 			'tab'      => 'content',
 			'group'    => 'settings',
-			'label'    => esc_html__( 'Rating input type', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Rating input type', 'jetreviews-integration-bricks' ),
 			'type'     => 'select',
 			'options'  => [
-				'slider-input' => esc_html__( 'Slider', 'jet-reviews-bricks-bridge' ),
-				'stars-input'  => esc_html__( 'Stars', 'jet-reviews-bricks-bridge' ),
+				'slider-input' => esc_html__( 'Slider', 'jetreviews-integration-bricks' ),
+				'stars-input'  => esc_html__( 'Stars', 'jetreviews-integration-bricks' ),
 			],
 			'default'  => 'slider-input',
 			'rerender' => true,
@@ -83,11 +83,11 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		$this->controls['reviewRatingType'] = [
 			'tab'      => 'content',
 			'group'    => 'settings',
-			'label'    => esc_html__( 'Review rating type', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Review rating type', 'jetreviews-integration-bricks' ),
 			'type'     => 'select',
 			'options'  => [
-				'average' => esc_html__( 'Average', 'jet-reviews-bricks-bridge' ),
-				'details' => esc_html__( 'Details', 'jet-reviews-bricks-bridge' ),
+				'average' => esc_html__( 'Average', 'jetreviews-integration-bricks' ),
+				'details' => esc_html__( 'Details', 'jetreviews-integration-bricks' ),
 			],
 			'default'  => 'average',
 			'rerender' => true,
@@ -96,7 +96,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		$this->controls['reviewsPerPage'] = [
 			'tab'      => 'content',
 			'group'    => 'settings',
-			'label'    => esc_html__( 'Reviews per page', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Reviews per page', 'jetreviews-integration-bricks' ),
 			'type'     => 'number',
 			'min'      => 1,
 			'max'      => 50,
@@ -107,7 +107,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		$this->controls['reviewAuthorAvatarVisible'] = [
 			'tab'      => 'content',
 			'group'    => 'settings',
-			'label'    => esc_html__( 'Show review author avatar', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Show review author avatar', 'jetreviews-integration-bricks' ),
 			'type'     => 'checkbox',
 			'default'  => true,
 			'rerender' => true,
@@ -116,7 +116,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		$this->controls['reviewTitleVisible'] = [
 			'tab'      => 'content',
 			'group'    => 'settings',
-			'label'    => esc_html__( 'Show review title', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Show review title', 'jetreviews-integration-bricks' ),
 			'type'     => 'checkbox',
 			'default'  => true,
 			'rerender' => true,
@@ -125,7 +125,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		$this->controls['reviewTitleInputVisible'] = [
 			'tab'      => 'content',
 			'group'    => 'settings',
-			'label'    => esc_html__( 'Show review title input', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Show review title input', 'jetreviews-integration-bricks' ),
 			'type'     => 'checkbox',
 			'default'  => true,
 			'rerender' => true,
@@ -134,7 +134,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		$this->controls['reviewContentInputVisible'] = [
 			'tab'      => 'content',
 			'group'    => 'settings',
-			'label'    => esc_html__( 'Show review content input', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Show review content input', 'jetreviews-integration-bricks' ),
 			'type'     => 'checkbox',
 			'default'  => true,
 			'rerender' => true,
@@ -143,7 +143,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		$this->controls['commentAuthorAvatarVisible'] = [
 			'tab'      => 'content',
 			'group'    => 'settings',
-			'label'    => esc_html__( 'Show comment author avatar', 'jet-reviews-bricks-bridge' ),
+			'label'    => esc_html__( 'Show comment author avatar', 'jetreviews-integration-bricks' ),
 			'type'     => 'checkbox',
 			'default'  => true,
 			'rerender' => true,
@@ -152,10 +152,10 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		$this->controls['disableBuilderRender'] = [
 			'tab'         => 'content',
 			'group'       => 'settings',
-			'label'       => esc_html__( "Don't render inside builder", 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( "Don't render inside builder", 'jetreviews-integration-bricks' ),
 			'type'        => 'checkbox',
 			'default'     => false,
-			'description' => esc_html__( 'Useful if the Vue widget slows down the builder. Frontend will still render.', 'jet-reviews-bricks-bridge' ),
+			'description' => esc_html__( 'Useful if the Vue widget slows down the builder. Frontend will still render.', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
@@ -180,7 +180,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			$this->controls[ $key ] = [
 				'tab'      => 'content',
 				'group'    => 'icons',
-				'label'    => esc_html__( $config[0], 'jet-reviews-bricks-bridge' ),
+				'label'    => esc_html__( $config[0], 'jetreviews-integration-bricks' ),
 				'type'     => 'icon',
 				'default'  => [
 					'library' => 'fontawesome',
@@ -195,60 +195,60 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			'tab'   => 'content',
 			'group' => 'labels',
 			'type'  => 'separator',
-			'label' => esc_html__( 'Header', 'jet-reviews-bricks-bridge' ),
+			'label' => esc_html__( 'Header', 'jetreviews-integration-bricks' ),
 		];
 
 		$this->controls['noReviewsLabel'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'No Reviews Message', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'No Reviews Message', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'No reviews found', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'No reviews found', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['singularReviewCountLabel'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Singular Review Count Label', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Singular Review Count Label', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Review', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Review', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['pluralReviewCountLabel'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Plural Review Count Label', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Plural Review Count Label', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Reviews', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Reviews', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['newReviewButton'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'New Review Button', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'New Review Button', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Write a review', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Write a review', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['alreadyReviewedMessage'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Already Reviewed Message', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Already Reviewed Message', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( '*Already reviewed', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( '*Already reviewed', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['moderatorCheckMessage'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Moderator Check Message', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Moderator Check Message', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( '*Your review must be approved by the moderator', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( '*Your review must be approved by the moderator', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
@@ -257,69 +257,69 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			'tab'   => 'content',
 			'group' => 'labels',
 			'type'  => 'separator',
-			'label' => esc_html__( 'Review Form', 'jet-reviews-bricks-bridge' ),
+			'label' => esc_html__( 'Review Form', 'jetreviews-integration-bricks' ),
 		];
 
 		$this->controls['notValidFieldMessage'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Not Valid Field Message', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Not Valid Field Message', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( '*This field is required or not valid', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( '*This field is required or not valid', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['authorNamePlaceholder'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Author Name Placeholder', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Author Name Placeholder', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Your Name', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Your Name', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['authorMailPlaceholder'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Author Mail Placeholder', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Author Mail Placeholder', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Your Mail', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Your Mail', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['reviewContentPlaceholder'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Review Content Placeholder', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Review Content Placeholder', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Your review', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Your review', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['reviewTitlePlaceholder'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Review Title Placeholder', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Review Title Placeholder', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Title of your review', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Title of your review', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['submitReviewButton'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Submit Review Button', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Submit Review Button', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Submit a review', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Submit a review', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['cancelButtonLabel'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Cancel Button', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Cancel Button', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Cancel', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Cancel', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
@@ -328,60 +328,60 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			'tab'   => 'content',
 			'group' => 'labels',
 			'type'  => 'separator',
-			'label' => esc_html__( 'Comment Form', 'jet-reviews-bricks-bridge' ),
+			'label' => esc_html__( 'Comment Form', 'jetreviews-integration-bricks' ),
 		];
 
 		$this->controls['newCommentButton'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'New Comment Button', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'New Comment Button', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Leave a comment', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Leave a comment', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['commentPlaceholder'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Comments Placeholder', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Comments Placeholder', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Leave your comments', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Leave your comments', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['showCommentsButton'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Show Comments Button', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Show Comments Button', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Show Comments', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Show Comments', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['hideCommentsButton'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Hide Comments Button', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Hide Comments Button', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Hide Comments', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Hide Comments', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['commentsTitle'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Comments Title', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Comments Title', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Comments', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Comments', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['submitCommentButton'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Submit Comment Button', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Submit Comment Button', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Submit Comment', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Submit Comment', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
@@ -390,33 +390,33 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			'tab'   => 'content',
 			'group' => 'labels',
 			'type'  => 'separator',
-			'label' => esc_html__( 'Reply Form', 'jet-reviews-bricks-bridge' ),
+			'label' => esc_html__( 'Reply Form', 'jetreviews-integration-bricks' ),
 		];
 
 		$this->controls['replyButton'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Reply Comment Button', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Reply Comment Button', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Reply', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Reply', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['replyPlaceholder'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Reply Placeholder', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Reply Placeholder', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Leave your reply', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Leave your reply', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 
 		$this->controls['submitReplyButton'] = [
 			'tab'         => 'content',
 			'group'       => 'labels',
-			'label'       => esc_html__( 'Submit Reply Button', 'jet-reviews-bricks-bridge' ),
+			'label'       => esc_html__( 'Submit Reply Button', 'jetreviews-integration-bricks' ),
 			'type'        => 'text',
-			'placeholder' => esc_html__( 'Submit a reply', 'jet-reviews-bricks-bridge' ),
+			'placeholder' => esc_html__( 'Submit a reply', 'jetreviews-integration-bricks' ),
 			'rerender'    => true,
 		];
 	}
@@ -520,12 +520,12 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 	public function render() {
 		if ( ! function_exists( 'jet_reviews' ) ) {
-			$this->render_element_placeholder( [ 'title' => esc_html__( 'JetReviews plugin is not active.', 'jet-reviews-bricks-bridge' ) ], 'warning' );
+			$this->render_element_placeholder( [ 'title' => esc_html__( 'JetReviews plugin is not active.', 'jetreviews-integration-bricks' ) ], 'warning' );
 			return;
 		}
 
 		if ( ! class_exists( '\\Jet_Reviews\\Reviews\\Review_Listing_Render' ) ) {
-			$this->render_element_placeholder( [ 'title' => esc_html__( 'JetReviews renderer class not found (plugin version mismatch).', 'jet-reviews-bricks-bridge' ) ], 'warning' );
+			$this->render_element_placeholder( [ 'title' => esc_html__( 'JetReviews renderer class not found (plugin version mismatch).', 'jetreviews-integration-bricks' ) ], 'warning' );
 			return;
 		}
 
@@ -535,8 +535,8 @@ class Element_JetReviews_Reviews_Listing extends Element {
 
 		if ( $is_builder_context && ! empty( $this->settings['disableBuilderRender'] ) ) {
 			$this->render_element_placeholder( [
-				'title' => esc_html__( 'JetReviews: rendering disabled in builder.', 'jet-reviews-bricks-bridge' ),
-				'text'  => esc_html__( 'Disable the "Don\'t render" option to preview, or check the frontend.', 'jet-reviews-bricks-bridge' ),
+				'title' => esc_html__( 'JetReviews: rendering disabled in builder.', 'jetreviews-integration-bricks' ),
+				'text'  => esc_html__( 'Disable the "Don\'t render" option to preview, or check the frontend.', 'jetreviews-integration-bricks' ),
 			] );
 			return;
 		}
@@ -598,7 +598,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 			$html = ob_get_clean();
 		} catch ( \Throwable $e ) {
 			if ( function_exists( 'error_log' ) ) {
-				error_log( '[JetReviews_Bricks_Bridge] ' . $e->getMessage() );
+				error_log( '[JetReviews_Integration_Bricks] ' . $e->getMessage() );
 			}
 
 			if ( current_user_can( 'manage_options' ) && $is_builder_context ) {
@@ -607,7 +607,7 @@ class Element_JetReviews_Reviews_Listing extends Element {
 		}
 
 		if ( empty( $html ) ) {
-			$this->render_element_placeholder( [ 'title' => esc_html__( 'JetReviews rendered empty output.', 'jet-reviews-bricks-bridge' ) ] );
+			$this->render_element_placeholder( [ 'title' => esc_html__( 'JetReviews rendered empty output.', 'jetreviews-integration-bricks' ) ] );
 			return;
 		}
 
