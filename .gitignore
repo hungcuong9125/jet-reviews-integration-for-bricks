@@ -4,6 +4,7 @@ error_log
 *.log
 *.zip
 build/
+.pi/
 original/
 node_modules/
 vendor/
