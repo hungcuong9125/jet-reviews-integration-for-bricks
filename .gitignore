@@ -2,9 +2,11 @@
 Thumbs.db
 error_log
 *.log
+*.zip
+build/
+.pi/
 original/
 node_modules/
 vendor/
-.github/
 .idea/
 .vscode/
