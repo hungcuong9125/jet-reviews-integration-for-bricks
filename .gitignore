@@ -2,6 +2,8 @@
 Thumbs.db
 error_log
 *.log
+*.zip
+build/
 original/
 node_modules/
 vendor/
