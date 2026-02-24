@@ -1,0 +1,75 @@
+name: Release (ZIP)
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set version
+        id: version
+        shell: bash
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          VERSION="${TAG#v}"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+
+      - name: Build plugin folder
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          PLUGIN_DIR="jet-reviews-integration-for-bricks"
+          BUILD_ROOT="build"
+          BUILD_DIR="${BUILD_ROOT}/${PLUGIN_DIR}"
+
+          rm -rf "$BUILD_ROOT"
+          mkdir -p "$BUILD_DIR"
+
+          # Copy repository contents into the plugin folder (exclude dev/CI files)
+          rsync -a \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.pi/' \
+            --exclude='docs/' \
+            --exclude='build/' \
+            --exclude='*.zip' \
+            --exclude='.DS_Store' \
+            ./ "$BUILD_DIR/"
+
+          echo "Built plugin at: $BUILD_DIR"
+
+      - name: Create ZIP
+        shell: bash
+        run: |
+          set -euo pipefail
+          VERSION="${{ steps.version.outputs.version }}"
+          PLUGIN_DIR="jet-reviews-integration-for-bricks"
+          ZIP_NAME="jet-reviews-integration-for-bricks-${VERSION}.zip"
+
+          cd build
+          zip -r "../${ZIP_NAME}" "${PLUGIN_DIR}" \
+            -x "*/.DS_Store"
+          cd ..
+
+          echo "ZIP created: ${ZIP_NAME}"
+
+      - name: Create GitHub Release and upload asset
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: ${{ steps.version.outputs.tag }}
+          generate_release_notes: true
+          files: |
+            jet-reviews-integration-for-bricks-${{ steps.version.outputs.version }}.zip
