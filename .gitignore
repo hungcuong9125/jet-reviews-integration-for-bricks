@@ -7,6 +7,5 @@ build/
 original/
 node_modules/
 vendor/
-.github/
 .idea/
 .vscode/
