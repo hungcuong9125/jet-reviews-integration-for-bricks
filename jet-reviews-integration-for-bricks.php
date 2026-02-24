@@ -9,18 +9,19 @@
  * Requires at least: 5.0
  * Requires PHP: 7.0
  * License:     GPL-2.0+
- * Text Domain: jet-reviews-bricks-bridge
+ * Text Domain: jetreviews-integration-bricks
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-final class JetReviews_Bricks_Bridge {
+final class JetReviews_Integration_Bricks {
 
 	const VERSION = '0.1.6';
-	const OPTION_ENABLED = 'jrbbr_enabled';
-	const SLUG    = 'jetreviews-bricks-bridge';
+	const OPTION_ENABLED = 'jrib_enabled';
+	const OPTION_ENABLED_LEGACY = 'jrbbr_enabled';
+	const SLUG    = 'jetreviews-integration-bricks';
 
 	private static $instance = null;
 
@@ -70,12 +71,16 @@ final class JetReviews_Bricks_Bridge {
 	}
 
 	public function is_enabled() {
-		$enabled = get_option( self::OPTION_ENABLED, '1' );
+		$enabled = get_option( self::OPTION_ENABLED, null );
+		if ( null === $enabled ) {
+			// Backward compatibility: previous versions stored the flag under a different option key.
+			$enabled = get_option( self::OPTION_ENABLED_LEGACY, '1' );
+		}
 		return ( '1' === (string) $enabled || 1 === $enabled || true === $enabled );
 	}
 
 	public function register_i18n( $i18n ) {
-		$i18n['jetreviews'] = esc_html__( 'JetReviews', 'jet-reviews-bricks-bridge' );
+		$i18n['jetreviews'] = esc_html__( 'JetReviews', 'jetreviews-integration-bricks' );
 		return $i18n;
 	}
 
@@ -112,8 +117,8 @@ final class JetReviews_Bricks_Bridge {
 	public function register_admin_page() {
 		add_submenu_page(
 			'jet-reviews',
-			esc_html__( 'Bricks Integration', 'jet-reviews-bricks-bridge' ),
-			esc_html__( 'Bricks Integration', 'jet-reviews-bricks-bridge' ),
+			esc_html__( 'Bricks Integration', 'jetreviews-integration-bricks' ),
+			esc_html__( 'Bricks Integration', 'jetreviews-integration-bricks' ),
 			'manage_options',
 			self::SLUG,
 			[ $this, 'render_admin_page' ],
@@ -133,7 +138,7 @@ final class JetReviews_Bricks_Bridge {
 
 		if ( $this->runtime['has_bricks'] && $this->runtime['has_jetreviews'] && $this->is_enabled() && ! $this->runtime['element_registered'] ) {
 			echo '<div class="notice notice-warning"><p>';
-			echo esc_html__( 'JetReviews Integration For Bricks: Bricks + JetReviews detected but the Bricks element is not registered yet on this request. Open JetReviews → Bricks Integration to see details.', 'jet-reviews-bricks-bridge' );
+			echo esc_html__( 'JetReviews Integration For Bricks: Bricks + JetReviews detected but the Bricks element is not registered yet on this request. Open JetReviews → Bricks Integration to see details.', 'jetreviews-integration-bricks' );
 			echo '</p></div>';
 		}
 	}
@@ -143,11 +148,11 @@ final class JetReviews_Bricks_Bridge {
 			return;
 		}
 
-		if ( isset( $_POST['jrbbr_save'] ) ) {
-			check_admin_referer( 'jrbbr_save_settings' );
-			$enabled = isset( $_POST['jrbbr_enabled'] ) ? '1' : '0';
+		if ( isset( $_POST['jrib_save'] ) ) {
+			check_admin_referer( 'jrib_save_settings' );
+			$enabled = isset( $_POST['jrib_enabled'] ) ? '1' : '0';
 			update_option( self::OPTION_ENABLED, $enabled );
-			echo '<div class="notice notice-success"><p>' . esc_html__( 'Settings saved.', 'jet-reviews-bricks-bridge' ) . '</p></div>';
+			echo '<div class="notice notice-success"><p>' . esc_html__( 'Settings saved.', 'jetreviews-integration-bricks' ) . '</p></div>';
 		}
 
 		$enabled          = $this->is_enabled();
@@ -163,38 +168,38 @@ final class JetReviews_Bricks_Bridge {
 		}
 
 		echo '<div class="wrap">';
-		echo '<h1>' . esc_html__( 'JetReviews → Bricks Integration', 'jet-reviews-bricks-bridge' ) . '</h1>';
+		echo '<h1>' . esc_html__( 'JetReviews → Bricks Integration', 'jetreviews-integration-bricks' ) . '</h1>';
 
 		echo '<form method="post" action="">';
-		wp_nonce_field( 'jrbbr_save_settings' );
+		wp_nonce_field( 'jrib_save_settings' );
 		echo '<table class="form-table" role="presentation">';
 		echo '<tr>';
-		echo '<th scope="row">' . esc_html__( 'Enable integration', 'jet-reviews-bricks-bridge' ) . '</th>';
+		echo '<th scope="row">' . esc_html__( 'Enable integration', 'jetreviews-integration-bricks' ) . '</th>';
 		echo '<td>';
-		echo '<label><input type="checkbox" name="jrbbr_enabled" value="1" ' . checked( $enabled, true, false ) . ' /> ';
-		echo esc_html__( 'Register Bricks elements for JetReviews', 'jet-reviews-bricks-bridge' ) . '</label>';
-		echo '<p class="description">' . esc_html__( 'Turn OFF to disable the bridge (elements won\'t be registered).', 'jet-reviews-bricks-bridge' ) . '</p>';
+		echo '<label><input type="checkbox" name="jrib_enabled" value="1" ' . checked( $enabled, true, false ) . ' /> ';
+		echo esc_html__( 'Register Bricks elements for JetReviews', 'jetreviews-integration-bricks' ) . '</label>';
+		echo '<p class="description">' . esc_html__( 'Turn OFF to disable the bridge (elements won\'t be registered).', 'jetreviews-integration-bricks' ) . '</p>';
 		echo '</td>';
 		echo '</tr>';
 		echo '</table>';
-		echo '<p><button class="button button-primary" type="submit" name="jrbbr_save" value="1">' . esc_html__( 'Save Changes', 'jet-reviews-bricks-bridge' ) . '</button></p>';
+		echo '<p><button class="button button-primary" type="submit" name="jrib_save" value="1">' . esc_html__( 'Save Changes', 'jetreviews-integration-bricks' ) . '</button></p>';
 		echo '</form>';
 
 		echo '<hr />';
-		echo '<h2>' . esc_html__( 'Debug status', 'jet-reviews-bricks-bridge' ) . '</h2>';
+		echo '<h2>' . esc_html__( 'Debug status', 'jetreviews-integration-bricks' ) . '</h2>';
 		echo '<table class="widefat striped" style="max-width: 920px;">';
 		echo '<tbody>';
-		echo '<tr><td><strong>' . esc_html__( 'JetReviews Integration For Bricks', 'jet-reviews-bricks-bridge' ) . '</strong></td><td>' . esc_html( self::VERSION ) . '</td></tr>';
-		echo '<tr><td><strong>' . esc_html__( 'Enabled', 'jet-reviews-bricks-bridge' ) . '</strong></td><td>' . ( $enabled ? '✅' : '❌' ) . '</td></tr>';
-		echo '<tr><td><strong>' . esc_html__( 'Bricks detected', 'jet-reviews-bricks-bridge' ) . '</strong></td><td>' . ( $has_bricks ? '✅' : '❌' ) . ' <code>' . esc_html( $bricks_version ) . '</code></td></tr>';
-		echo '<tr><td><strong>' . esc_html__( 'JetReviews detected', 'jet-reviews-bricks-bridge' ) . '</strong></td><td>' . ( $has_jetreviews ? '✅' : '❌' ) . ' <code>' . esc_html( $jetreviews_version ) . '</code></td></tr>';
-		echo '<tr><td><strong>' . esc_html__( 'Element registered', 'jet-reviews-bricks-bridge' ) . '</strong></td><td>' . ( $element_registered ? '✅' : '❌' ) . '</td></tr>';
+		echo '<tr><td><strong>' . esc_html__( 'JetReviews Integration For Bricks', 'jetreviews-integration-bricks' ) . '</strong></td><td>' . esc_html( self::VERSION ) . '</td></tr>';
+		echo '<tr><td><strong>' . esc_html__( 'Enabled', 'jetreviews-integration-bricks' ) . '</strong></td><td>' . ( $enabled ? '✅' : '❌' ) . '</td></tr>';
+		echo '<tr><td><strong>' . esc_html__( 'Bricks detected', 'jetreviews-integration-bricks' ) . '</strong></td><td>' . ( $has_bricks ? '✅' : '❌' ) . ' <code>' . esc_html( $bricks_version ) . '</code></td></tr>';
+		echo '<tr><td><strong>' . esc_html__( 'JetReviews detected', 'jetreviews-integration-bricks' ) . '</strong></td><td>' . ( $has_jetreviews ? '✅' : '❌' ) . ' <code>' . esc_html( $jetreviews_version ) . '</code></td></tr>';
+		echo '<tr><td><strong>' . esc_html__( 'Element registered', 'jetreviews-integration-bricks' ) . '</strong></td><td>' . ( $element_registered ? '✅' : '❌' ) . '</td></tr>';
 		echo '</tbody>';
 		echo '</table>';
 
 		echo '<hr />';
-		echo '<h2>' . esc_html__( 'Support', 'jet-reviews-bricks-bridge' ) . '</h2>';
-		echo '<p><strong>' . esc_html__( 'Author:', 'jet-reviews-bricks-bridge' ) . '</strong> <a href="https://toiuuwp.com" target="_blank" rel="noopener">Toiuuwp</a></p>';
+		echo '<h2>' . esc_html__( 'Support', 'jetreviews-integration-bricks' ) . '</h2>';
+		echo '<p><strong>' . esc_html__( 'Author:', 'jetreviews-integration-bricks' ) . '</strong> <a href="https://toiuuwp.com" target="_blank" rel="noopener">Toiuuwp</a></p>';
 		echo '<ul style="list-style: disc; padding-left: 22px;">';
 		echo '<li><strong>Web:</strong> <a href="https://toiuuwp.com" target="_blank" rel="noopener">toiuuwp.com</a></li>';
 		echo '<li><strong>Facebook:</strong> <a href="https://www.facebook.com/hungcuong2591" target="_blank" rel="noopener">Facebook</a></li>';
@@ -210,4 +215,4 @@ final class JetReviews_Bricks_Bridge {
 	}
 }
 
-JetReviews_Bricks_Bridge::instance();
+JetReviews_Integration_Bricks::instance();
