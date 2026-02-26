@@ -3,7 +3,7 @@
  * Plugin Name: JetReviews Integration For Bricks
  * Plugin URI:  https://crocoblock.com/plugins/jetreviews/
  * Description: Adds Bricks Builder elements to render JetReviews widgets (without modifying JetReviews).
- * Version:     0.1.6.1
+ * Version:     0.1.6.2
  * Author:      Toiuuwp
  * Author URI:  https://toiuuwp.com
  * Requires at least: 5.0
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 final class JetReviews_Integration_Bricks {
 
-	const VERSION = '0.1.6.1';
+	const VERSION = '0.1.6.2';
 	const OPTION_ENABLED = 'jrib_enabled';
 	const OPTION_ENABLED_LEGACY = 'jrbbr_enabled';
 	const SLUG    = 'jetreviews-integration-bricks';

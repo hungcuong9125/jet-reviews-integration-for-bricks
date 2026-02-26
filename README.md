@@ -20,9 +20,11 @@ Adds Bricks Builder elements to render JetReviews widgets without modifying JetR
 
 ## Changelog
 
+### 0.1.6.2
+- **Fixed**: Corrected plugin folder structure in ZIP release to ensure it can be installed directly via WordPress.
+- **Fixed**: Removed accidental temporary files from the repository.
+
 ### 0.1.6.1
-- **Fixed**: Performed testing and squashed minor bugs discovered during development.
-- **Improved**: Redesigned the "Bricks Integration" admin page with a modern "Support & Community" section.
 
 ### 0.1.6
 - **Added** new **Static Review** element for Bricks Builder (equivalent to Elementor's "Jet Reviews" / Static Review widget).
