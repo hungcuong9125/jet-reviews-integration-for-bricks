@@ -3,7 +3,7 @@
  * Plugin Name: JetReviews Integration For Bricks
  * Plugin URI:  https://crocoblock.com/plugins/jetreviews/
  * Description: Adds Bricks Builder elements to render JetReviews widgets (without modifying JetReviews).
- * Version:     0.1.6
+ * Version:     0.1.6.1
  * Author:      Toiuuwp
  * Author URI:  https://toiuuwp.com
  * Requires at least: 5.0
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 final class JetReviews_Integration_Bricks {
 
-	const VERSION = '0.1.6';
+	const VERSION = '0.1.6.1';
 	const OPTION_ENABLED = 'jrib_enabled';
 	const OPTION_ENABLED_LEGACY = 'jrbbr_enabled';
 	const SLUG    = 'jetreviews-integration-bricks';
@@ -187,7 +187,7 @@ final class JetReviews_Integration_Bricks {
 
 		echo '<hr />';
 		echo '<h2>' . esc_html__( 'Debug status', 'jetreviews-integration-bricks' ) . '</h2>';
-		echo '<table class="widefat striped" style="max-width: 920px;">';
+		echo '<table class="widefat striped" style="max-width: 920px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">';
 		echo '<tbody>';
 		echo '<tr><td><strong>' . esc_html__( 'JetReviews Integration For Bricks', 'jetreviews-integration-bricks' ) . '</strong></td><td>' . esc_html( self::VERSION ) . '</td></tr>';
 		echo '<tr><td><strong>' . esc_html__( 'Enabled', 'jetreviews-integration-bricks' ) . '</strong></td><td>' . ( $enabled ? '✅' : '❌' ) . '</td></tr>';
@@ -197,14 +197,37 @@ final class JetReviews_Integration_Bricks {
 		echo '</tbody>';
 		echo '</table>';
 
-		echo '<hr />';
-		echo '<h2>' . esc_html__( 'Support', 'jetreviews-integration-bricks' ) . '</h2>';
-		echo '<p><strong>' . esc_html__( 'Author:', 'jetreviews-integration-bricks' ) . '</strong> <a href="https://toiuuwp.com" target="_blank" rel="noopener">Toiuuwp</a></p>';
-		echo '<ul style="list-style: disc; padding-left: 22px;">';
-		echo '<li><strong>Web:</strong> <a href="https://toiuuwp.com" target="_blank" rel="noopener">toiuuwp.com</a></li>';
-		echo '<li><strong>Facebook:</strong> <a href="https://www.facebook.com/hungcuong2591" target="_blank" rel="noopener">Facebook</a></li>';
-		echo '<li><strong>Discord:</strong> <a href="#" target="_blank" rel="noopener">skeleton3188</a></li>';
-		echo '</ul>';
+		echo '<div style="margin-top: 30px; max-width: 920px;">';
+		echo '<div style="background: #fff; border: 1px solid #ccd0d4; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); padding: 25px;">';
+		echo '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">';
+
+		// Column 1: Contact
+		echo '<div>';
+		echo '<h2 style="margin-top: 0; margin-bottom: 20px; font-size: 20px;">' . esc_html__( 'Support & Community', 'jetreviews-integration-bricks' ) . '</h2>';
+		echo '<h3 style="margin-top: 0; font-size: 16px;">' . esc_html__( 'Contact Author', 'jetreviews-integration-bricks' ) . '</h3>';
+		echo '<p style="margin-bottom: 15px;"><strong>' . esc_html__( 'Author:', 'jetreviews-integration-bricks' ) . '</strong> Toiuuwp</p>';
+
+		echo '<div style="display: flex; flex-direction: column; gap: 10px;">';
+		echo '<a href="https://toiuuwp.com" target="_blank" rel="noopener" style="text-decoration: none; color: #2271b1; display: flex; align-items: center; gap: 8px;"><span class="dashicons dashicons-admin-site"></span> toiuuwp.com</a>';
+		echo '<a href="https://www.facebook.com/hungcuong2591" target="_blank" rel="noopener" style="text-decoration: none; color: #2271b1; display: flex; align-items: center; gap: 8px;"><span class="dashicons dashicons-facebook"></span> Facebook</a>';
+		echo '<a href="#" target="_blank" rel="noopener" style="text-decoration: none; color: #2271b1; display: flex; align-items: center; gap: 8px;"><span class="dashicons dashicons-groups"></span> Discord: hungcuong259</a>';
+		echo '</div>';
+		echo '</div>';
+
+		// Column 2: Donation
+		echo '<div style="background: #fdfaf3; border: 1px solid #f9e3b4; border-radius: 6px; padding: 20px;">';
+		echo '<h3 style="margin-top: 0; font-size: 16px; color: #856404;">' . esc_html__( 'Support My Work', 'jetreviews-integration-bricks' ) . '</h3>';
+		echo '<p style="margin-bottom: 18px; line-height: 1.5;">' . esc_html__( 'If you like this plugin and find it useful, please consider supporting its development. Your contribution helps keep this project alive and updated!', 'jetreviews-integration-bricks' ) . '</p>';
+
+		echo '<div style="display: flex; align-items: center; flex-wrap: wrap; gap: 15px;">';
+		echo '<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="hungcuong259" data-color="#FFDD00" data-emoji="☕"  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>';
+		echo '<a href="https://buymeacoffee.com/hungcuong259" target="_blank" rel="noopener" style="text-decoration: none; font-weight: bold; color: #000; border-bottom: 2px solid #FFDD00; padding: 2px 0;">' . esc_html__( 'Buy me a coffee', 'jetreviews-integration-bricks' ) . '</a>';
+		echo '</div>';
+		echo '</div>';
+
+		echo '</div>'; // End grid
+		echo '</div>'; // End card
+		echo '</div>'; // End wrapper
 
 		echo '</div>';
 	}

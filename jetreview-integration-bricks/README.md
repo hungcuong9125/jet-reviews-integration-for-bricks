@@ -73,7 +73,6 @@ If you find this plugin helpful, please consider supporting its development:
 
 - **Visit Website**: [toiuuwp.com](https://toiuuwp.com)
 - **Facebook**: [Connect on Facebook](https://www.facebook.com/hungcuong2591)
-- **Discord**: `hungcuong259`
 
 ---
 Created by [toiuuwp](https://toiuuwp.com)
