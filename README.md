@@ -29,7 +29,7 @@ Adds Bricks Builder elements to render JetReviews widgets without modifying JetR
 - **Improved**: Redesigned the "Bricks Integration" admin page with a modern "Support & Community" section.
 
 ### 0.1.6
-- **Added** new **Static Review** element for Bricks Builder (equivalent to Elementor's "Jet Reviews" / Static Review widget).
+- **Added** new **Static Review** element for Bricks Builder (equivalent to Elementor's **Jet Reviews**/**Static Review** widget).
   - Repeater-based rating fields (Label, Value, Max).
   - Stars / Points / Percentage layout modes with progress bar support.
   - Header with title and total average display.
@@ -63,7 +63,7 @@ Adds Bricks Builder elements to render JetReviews widgets without modifying JetR
 - Improved error handling.
 
 ### 0.1.1
-- Fixed Reviews Listing (JetReviews) widget not displaying in Bricks Builder.
+- Fixed Reviews Listing widget not displaying in Bricks Builder.
 - Fixed element registration timing to wait for Bricks base classes.
 
 ### 0.1.0
@@ -73,7 +73,7 @@ Adds Bricks Builder elements to render JetReviews widgets without modifying JetR
 ## Support
 If you find this plugin helpful, please consider supporting its development:
 
-[![Buy Me A Coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=%E2%98%95&slug=hungcuong259&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff)](https://buymeacoffee.com/hungcuong259)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=000000)](https://www.buymeacoffee.com/hungcuong259)
 
 - **Visit Website**: [toiuuwp.com](https://toiuuwp.com)
 - **Facebook**: [Connect on Facebook](https://www.facebook.com/hungcuong2591)
